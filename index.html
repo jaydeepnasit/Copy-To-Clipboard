@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Copy To ClipBoard</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link rel="stylesheet" href="Stylesheet/stylesheet.css">
+</head>
+<body>
+
+	<div class="container-fluid">
+
+	    <div class="container">
+	        <ul class="nav justify-content-center header-deco">
+	            <li class="nav-item">
+	                <div class="nav-link heading">Copy To Clipboard</div>
+	            </li>
+	        </ul>
+	    </div>
+
+	    <div class="container">
+            <div class="row justify-content-left">
+				<div class="col-lg-2 example-title">
+					# Example 1
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-12 col-lg-10">
+					<input type="text" id="ex-1-text" class="text-field-deco h-50" value="Lorem Ipsum is simply dummy text of the printing and typesetting industry." readonly>
+				</div>
+				<div class="col-sm-12 col-lg-2">
+					<button type="button" id="ex-1" class="text-field-btn">Copy To ClipBoard</button>
+				</div>
+			</div>
+
+			<div class="row justify-content-left">
+				<div class="col-lg-2 example-title">
+					# Example 2
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-12 col-lg-10">
+					<textarea class="text-field-deco" id="ex-2-text" cols="30" rows="5">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.</textarea>
+				</div>
+				<div class="col-sm-12 col-lg-2">
+					<button type="button" id="ex-2" class="text-field-btn">Copy To ClipBoard</button>
+				</div>
+			</div>
+
+			<div class="row justify-content-left">
+				<div class="col-lg-2 example-title">
+					# Example 3
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-12 col-lg-10">
+					<div class="div-deco" id="ex-3-text">
+						It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+					</div>
+				</div>
+				<div class="col-sm-12 col-lg-2">
+					<button type="button" id="ex-3" class="text-field-btn">Copy To ClipBoard</button>
+				</div>
+			</div>
+
+	    </div>
+
+	</div>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script type="text/javascript">
+
+$(document).ready(function (){
+
+	$('#ex-1').click(function (){
+		var CPT = $('#ex-1-text').val();
+		$('#ex-1-text').select();
+		document.execCommand("Copy");
+		console.log(CPT);   // Only For Testing.
+		return false;
+	});
+
+	$('#ex-2').click(function (){
+		var CPT = $('#ex-2-text').val();
+		$('#ex-2-text').select();
+		document.execCommand("Copy");
+		console.log(CPT);   // Only For Testing.
+		return false;
+	});
+
+	$('#ex-3').click(function (){
+		var element = $('#ex-3-text')[0];
+		var selection = window.getSelection();
+		var range = document.createRange();
+		range.selectNodeContents(element);
+		selection.removeAllRanges();
+		selection.addRange(range);
+		document.execCommand("Copy");
+		console.log('Copied Div Content To ClipBoard');
+		return false;
+	});
+
+});
+           
+</script>
+</body>
+</html>

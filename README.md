@@ -6,3 +6,5 @@ Simple Copy To ClipBoard Script Using Jquery
 ## Preview
 
 ![copy](https://user-images.githubusercontent.com/26626045/79554796-31724200-80bc-11ea-91d3-7df25a30f90e.PNG)
+
+## Watch On Youtube :- https://youtu.be/xL-YBFSEOGA
